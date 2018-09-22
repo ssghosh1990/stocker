@@ -1,4 +1,10 @@
 {
+    "build": {
+        "@saveall": true
+    },
+    "instance": {
+        "@automaticShutdown": "30"
+    },
     "language": {
         "tern_defs": {
             "json()": {
@@ -15,9 +21,18 @@
         }
     },
     "run": {
+        "@runner": "Ruby",
         "configs": {
             "@inited": "true",
-            "json()": {}
+            "json()": {
+                "stocker": {
+                    "command": "rails s -b 0.0.0.0",
+                    "cwd": "/",
+                    "name": "stocker",
+                    "runner": "Shell command",
+                    "toolbar": true
+                }
+            }
         }
     },
     "welcome": {

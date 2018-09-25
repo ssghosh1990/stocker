@@ -1,2 +1,25 @@
-<h1>Netflix</h1>
-<p>Final Space</p>
+<%= form_tag root_path, :method => 'POST' do %> 
+ <%= text_field_tag 'id', nil, placeholder: 'Enter company ticket symbol', size: 50 %>
+ <%= submit_tag 'Lookup Stock Quote' %>
+<% end %>
+
+<br/><br/>
+<% if @stock %>
+  
+  <strong>Company Name: </strong><%= @stock.company_name %> - <%= @stock.symbol %><br/>
+  <strong>Sector: </strong><%= @stock.sector %><br/>
+  <strong>Price/Earning Ratio: </strong><%= @stock.pe_ratio %><br/>
+  <strong>Market Capital: </strong><%= @stock.market_cap %><br/>
+  <strong>Stock Open: </strong><%= @stock.open %><br/>
+  <strong>Day's Range: </strong><%= @stock.low %> - <%= @stock.high %><br/>
+  <strong>Year High: </strong><%= @stock.week52_high %><br/>
+  <strong>Year Low: </strong><%= @stock.week52_low %><br/>
+  
+  
+  <% elsif @nothing %>
+  <%= @nothing %>
+  <% end %>
+  
+  <% if @error %>
+  <%= @error %>
+  <% end %>
